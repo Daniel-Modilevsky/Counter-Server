@@ -9,8 +9,8 @@ def create_and_init_counter_metadata_table_query(cursor):
     cursor.execute(
         f'CREATE TABLE IF NOT EXISTS metadata '
         f'(id INTEGER PRIMARY KEY, '
-        f'ip_address VARCHAR(30) NOT NULL, '
-        f'timestamp TIMESTAMP VARCHAR(25) NOT NULL, '
+        f'ip_address INET NOT NULL, '
+        f'timestamp TIMESTAMP WITH TIME ZONE NOT NULL, '
         f'action_type VARCHAR(8) NOT NULL)')
 
 
