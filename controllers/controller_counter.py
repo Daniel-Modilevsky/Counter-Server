@@ -4,6 +4,7 @@ import threading
 from queries.query_counter import update_counter_query, get_counter_query
 from utils.constans import ActionType
 
+# Initialize the lock
 counter_lock = threading.Lock()
 
 
