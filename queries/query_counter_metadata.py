@@ -2,7 +2,7 @@ from time import strftime
 from typing import Optional
 
 from decorators.decorator_db import with_db_connection
-from utils.constans import TableNames, MINIMUM_LIMIT
+from utils.constans import TableNames
 
 
 @with_db_connection
@@ -16,8 +16,8 @@ def create_and_init_counter_metadata_table_query(cursor):
 
 
 @with_db_connection
-def get_filtered_metadata_query(cursor, action_type: Optional[str] = None, from_timestamp=None, to_timestamp=None, ip_address=None,
-                                limit=MINIMUM_LIMIT):
+def get_filtered_metadata_query(cursor, action_type: Optional[str] = None, from_timestamp=None, to_timestamp=None,
+                                ip_address=None):
     query = f'SELECT * FROM {TableNames["METADATA"]}'
     filters = []
     if action_type:
@@ -32,7 +32,6 @@ def get_filtered_metadata_query(cursor, action_type: Optional[str] = None, from_
     if filters:
         query += " WHERE " + " AND ".join(filters)
 
-    query += f" LIMIT {limit}"
     cursor.execute(query)
     result = cursor.fetchall()
     return result

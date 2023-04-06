@@ -1,1 +1,1 @@
-DB_NAME = 'counter.db'
+DB_NAME: str = 'counter.db'

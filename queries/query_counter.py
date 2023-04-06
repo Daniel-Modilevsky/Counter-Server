@@ -22,5 +22,6 @@ def update_counter_query(cursor, action_type):
         cursor.execute(f'UPDATE {TableNames["COUNTER"]} SET value = value + 1 WHERE id = {INITIAL_COUNTER_INDEX}')
     else:
         cursor.execute(f'UPDATE {TableNames["COUNTER"]} SET value = value - 1 WHERE id = {INITIAL_COUNTER_INDEX}')
-    return get_counter_query()
-
+    cursor.execute(f'SELECT value FROM {TableNames["COUNTER"]} WHERE id = {INITIAL_COUNTER_INDEX}')
+    result = cursor.fetchone()[0]
+    return result

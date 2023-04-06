@@ -11,8 +11,6 @@ counter_lock = threading.Lock()
 
 def get_counter_controller():
     with counter_lock:
-        # Validation?
-        # Update the log
         insert_metadata(ActionType["GET"])
         counter = get_counter_query()
         return jsonify({'counter': counter})
@@ -20,8 +18,6 @@ def get_counter_controller():
 
 def increment_controller():
     with counter_lock:
-        # Validation?
-        # Update the log
         insert_metadata(ActionType["INCREASE"])
         counter = update_counter_query(ActionType["INCREASE"])
         return jsonify({'counter': counter})
@@ -29,9 +25,6 @@ def increment_controller():
 
 def decrement_controller():
     with counter_lock:
-        # Validation?
-        # Update the log
-        # insert_audit_log(request.remote_addr, ActionType["DECREASE"], counter)
         insert_metadata(ActionType["DECREASE"])
         counter = update_counter_query(ActionType["DECREASE"])
         return jsonify({'counter': counter})
