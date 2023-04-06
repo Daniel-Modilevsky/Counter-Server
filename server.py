@@ -1,4 +1,5 @@
 from flask import Flask
+
 from controllers.controller_counter import get_counter_controller, increment_controller, decrement_controller
 from controllers.controller_counter_metadata import get_filtered_counter_metadata_controller
 from queries.query_counter import create_and_init_counter_table_query

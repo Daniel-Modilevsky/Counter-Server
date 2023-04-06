@@ -21,5 +21,9 @@ TableNames = {
 DEFAULT_IP = '127.0.0.1'
 INITIAL_COUNTER_VALUE = 0
 INITIAL_COUNTER_INDEX = 1
-DB_NAME = 'counter.db'
 MINIMUM_LIMIT = 20
+MAXIMUM_LIMIT = 100
+EnvironmentModes = {
+    'DEVELOPMENT': 'development',
+    'TESTING': 'testing',
+}
