@@ -14,6 +14,18 @@ def with_db_connection(func):
         else:
             connection = sqlite3.connect(DEV_DB)
         cursor = connection.cursor()
+        # Check if the metadata table exists
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='metadata'")
+        result = cursor.fetchone()
+        if not result:
+            # Create the metadata table if it doesn't exist
+            cursor.execute(
+                f'CREATE TABLE IF NOT EXISTS metadata '
+                f'(id INTEGER PRIMARY KEY, '
+                f'ip_address INET NOT NULL, '
+                f'timestamp TIMESTAMP WITH TIME ZONE NOT NULL, '
+                f'action_type VARCHAR(8) NOT NULL)')
+
         result = func(cursor, *args, **kwargs)
         connection.commit()
         connection.close()
