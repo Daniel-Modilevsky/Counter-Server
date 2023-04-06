@@ -18,4 +18,5 @@ def with_db_connection(func):
         connection.commit()
         connection.close()
         return result
+
     return wrapper

@@ -1,5 +1,7 @@
 import sqlite3
 import os
+from sqlite3 import Cursor, Connection
+
 from config.config_dev import DB_NAME as DEV_DB
 from config.config_test import DB_NAME as TEST_DB
 from utils.constans import EnvironmentModes
@@ -7,7 +9,7 @@ from utils.constans import EnvironmentModes
 environment = os.environ.get('FLASK_DEBUG', EnvironmentModes['DEVELOPMENT'])
 
 
-def init_db_connection():
+def init_db_connection() -> Cursor:
     if environment == EnvironmentModes['TESTING']:
         connection = sqlite3.connect(TEST_DB)
     else:
@@ -16,6 +18,6 @@ def init_db_connection():
     return cursor
 
 
-def distraction_db_connection(connection):
+def distraction_db_connection(connection: Connection):
     connection.commit()
     connection.close()

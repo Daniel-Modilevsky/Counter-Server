@@ -23,5 +23,4 @@ app.route('/increase', methods=['POST'])(increment_controller)
 app.route('/decrease', methods=['POST'])(decrement_controller)
 app.route('/metadata', methods=['GET'])(get_filtered_counter_metadata_controller)
 
-
 app.run(host='0.0.0.0', port=9090)

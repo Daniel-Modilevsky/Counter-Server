@@ -1,5 +1,5 @@
 from decorators.decorator_db import with_db_connection
-from tests.mock_metadata import mock_metadata_table
+from tests.mock.mock_metadata import mock_metadata_table
 
 
 @with_db_connection
