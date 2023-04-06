@@ -1,7 +1,7 @@
 from flask import jsonify
 import threading
 
-from controllers.controller_counter_metadata import insert_metadata
+from controllers.controller_metadata import insert_metadata
 from queries.query_counter import update_counter_query, get_counter_query
 from utils.constans import ActionType
 

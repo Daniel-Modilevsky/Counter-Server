@@ -1,10 +1,10 @@
 from datetime import datetime
 from flask import request, jsonify, abort
 
-from queries.query_counter_metadata import get_filtered_metadata_query, insert_metadata_query
+from queries.query_metadata import get_filtered_metadata_query, insert_metadata_query
 from utils.constans import MINIMUM_LIMIT
 from utils.utils_metadata import paginate
-from validations.validation_metadata_counter import is_valid_limit, is_valid_timestamp, is_valid_action_type, \
+from validations.validation_metadata import is_valid_limit, is_valid_timestamp, is_valid_action_type, \
     is_valid_ip
 
 

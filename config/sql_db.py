@@ -18,6 +18,6 @@ def init_db_connection() -> Cursor:
     return cursor
 
 
-def distraction_db_connection(connection: Connection):
+def tear_down(connection: Connection):
     connection.commit()
     connection.close()
