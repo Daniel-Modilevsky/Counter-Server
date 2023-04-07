@@ -42,14 +42,10 @@ This command will start the application and the MySQL/PostgreSQL/SQLite database
 
 - Open a terminal window and navigate to the root directory of the cloned repository.
 
-
-  $ pip3 install -r requirements.txt
-  $ export FLASK_ENV=development
-  $ python3 server.py --config
   $ docker-compose up
   
 - This command will start the application server and the database. 
-- Open the browser and navigate to http://localhost:9090.
+- Open the browser and navigate to http://localhost:5050.
 ```
 
 
