@@ -29,11 +29,6 @@ The metadata is paginated because of the size and can be filtered by:
 The application is dockerized and can be easily run using docker-compose.
 
 Run the following command to start the API server:
-bash
-Copy code
-docker-compose up
-This command will start the application and the MySQL/PostgreSQL/SQLite database. The API server will be available on port 9090.
-
 
 ```bash
 - Clone the repository to your local machine.
